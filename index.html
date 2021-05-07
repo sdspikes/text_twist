@@ -25,24 +25,34 @@
   <div class="game-area">
     <div class="letters">letters go here</div>
     <br>
-    <form>
-      <label for="guess">Enter Guess:</label><br>
-      <input type="text"
-             id="fname"
-             name="guess"
-             class="guess"
-             placeholder="enter guesses here">
-      <input type="submit"
-             value="Submit">
-    </form>
-    <button class="done">Done Guessing</button>
-    <div class="wrong-message">incorrect! try again</div>
+    <div class="guess-area">
+      <form>
+        <label for="guess">Enter Guess:</label><br>
+        <input type="text"
+               id="fname"
+               name="guess"
+               class="guess"
+               placeholder="enter guesses here">
+        <input type="submit"
+               value="Submit">
+      </form>
+      <button class="done">Done Guessing</button>
+      <div class="wrong-message">incorrect! try again</div>
+
+    </div>
 
     <div class="correct-guess-container">
       <ul class="correct-guesses">
 
       </ul>
     </div>
+  </div>
+  <div class="missed-words-container">
+    Words you missed:
+    <ul class="missed-words">
+
+    </ul>
+    <button class="continue">Continue</button>
   </div>
 </body>
 
