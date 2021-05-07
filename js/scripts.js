@@ -1,19 +1,32 @@
 $(document).ready(function () {
 
   $('.start-btn').click(e => {
-    $('.welcome').hide();
-    $('.game-area').show();
-    startGame(getRandomItem(sixLetterWords));
+    setupGame();
+  });
+
+  $('.done').click(e => {
+    setupGame();
   });
 
 });
+
+function setupGame() {
+  // Reset all elements to start a new round
+  $('.welcome').hide()
+  $('.game-area').show()
+  $('.wrong-message').hide();
+  $('.correct-guesses').empty()
+  $('.guess').val('')
+
+  startGame(getRandomItem(sixLetterWords));
+}
 
 function getRandomNumberUpTo(n) {
   return Math.floor(Math.random() * n);
 }
 
 function getRandomItem(arr) {
-  return arr[getRandomNumberUpTo(arr.length)]
+  return arr[getRandomNumberUpTo(arr.length)];
 }
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm
@@ -61,6 +74,7 @@ function startGame(seedWord) {
   randomLetters = shuffleArray(letters);
   showLetters(randomLetters);
 
+  $('form').unbind('submit');
   $('form').submit(e => {
     e.preventDefault();
     const guess = $('.guess').val().toUpperCase();
@@ -72,7 +86,6 @@ function startGame(seedWord) {
       $('.wrong-message').show();
     }
     $('.guess').val('');
-  })
+  });
 
 }
-
